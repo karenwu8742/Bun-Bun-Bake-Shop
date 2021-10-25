@@ -118,6 +118,29 @@ h2 {
     text-align: left;
 }
 
+.glaze {
+    background-color: white;
+    color: black;
+    width: 425px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    height: 50px;
+    margin: 5px;
+}
+
+.glaze:hover {
+    background-color: darkgray;
+    color: white;
+    border-color: darkgray;
+}
+
+.glaze:focus {
+    background-color: darkgray;
+    color: white;
+}
+
 /* Forms and Contact */
 input[type=text], select, textarea {
     width: 100%;
