@@ -74,6 +74,7 @@ function cart(){
     if (priceSum == null){
         localStorage.setItem('priceSum', JSON.stringify(0))
     }
+    updateCart();
 }
 
 // Update the cart on the navigaation abr
@@ -84,11 +85,10 @@ function updateCart(){
     cartNum = cartNum.replace('CART (', '');
     cartNum = cartNum.replace(')',''); 
     if(cartNumStored){
-        localStorage.setItem('cartNum',JSON.stringify('('+ (selectedQty + parseInt(cartNum)) + ')'));
-        document.getElementById('cart').text = '('+ (selectedQty + parseInt(cartNum)) +')';
+        localStorage.setItem('cartNum',JSON.stringify('CART ('+ (selectedQty + parseInt(cartNum)) + ')'));
+        document.getElementById('cart').text = 'CART ('+ (selectedQty + parseInt(cartNum)) +')';
     }
     else{ 
-        console.log(JSON.parse(localStorage.getItem('cartNum')))
         localStorage.setItem('cartNum',JSON.stringify('CART (' + selectedQty + ')'));
         document.getElementById('cart').text = 'CART (' + selectedQty + ')'; 
     }
@@ -109,5 +109,4 @@ function addToCart(){
     price = parseFloat(price)
     roll(name, glaze, img, qty, price, cartNum)
     updateCart()
-    displayCart() 
 }
