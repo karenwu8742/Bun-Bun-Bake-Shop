@@ -70,7 +70,7 @@ function updateCart(){
     let cartNum = document.getElementById('cart').text;
     cartNum = cartNum.replace('CART (', '');
     cartNum = cartNum.replace(')',''); 
-    if(cartNumStored) {
+    if (cartNumStored) {
         localStorage.setItem('cartNum',JSON.stringify('CART ('+ (selectedQty + parseInt(cartNum)) + ')'));
         document.getElementById('cart').text = 'CART ('+ (selectedQty + parseInt(cartNum)) +')';
     }
@@ -83,7 +83,7 @@ function updateCart(){
 // Display the number of rolls in the cart
 function cart(){
     let cartNumStored = JSON.parse(localStorage.getItem('cartNum'));
-    if(cartNumStored) {
+    if (cartNumStored) {
         let currCart = document.getElementById('cart');
         currCart.textContent = (cartNumStored);
     }
