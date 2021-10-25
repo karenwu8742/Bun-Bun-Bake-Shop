@@ -1,5 +1,6 @@
 // Product Javascript
 
+// Creating rolls that are in the cart
 function roll(name, glaze, img, qty, price, cartNum){
     item = {
         name,
@@ -62,7 +63,7 @@ function updatePrice(){
     localStorage.setItem('currPrice', JSON.stringify(parseFloat(price)))
 }
 
-// Display the number of rolls in the cart on the nav bar
+// Display the number of rolls in the cart
 function cart(){
     let cartNumStored = JSON.parse(localStorage.getItem('cartNum'));
     if(cartNumStored){
@@ -72,6 +73,24 @@ function cart(){
     let priceSum = JSON.parse(localStorage.getItem('priceSum'))
     if (priceSum == null){
         localStorage.setItem('priceSum', JSON.stringify(0))
+    }
+}
+
+// Update the cart on the navigaation abr
+function updateCart(){
+    let cartNumStored = JSON.parse(localStorage.getItem('cartNum'));
+    let selectedQty = parseInt(document.getElementById('qtyNum').value);
+    let cartNum = document.getElementById('cart').text;
+    cartNum = cartNum.replace('CART (', '');
+    cartNum = cartNum.replace(')',''); 
+    if(cartNumStored){
+        localStorage.setItem('cartNum',JSON.stringify('('+ (selectedQty + parseInt(cartNum)) + ')'));
+        document.getElementById('cart').text = '('+ (selectedQty + parseInt(cartNum)) +')';
+    }
+    else{ 
+        console.log(JSON.parse(localStorage.getItem('cartNum')))
+        localStorage.setItem('cartNum',JSON.stringify('CART (' + selectedQty + ')'));
+        document.getElementById('cart').text = 'CART (' + selectedQty + ')'; 
     }
 }
 
