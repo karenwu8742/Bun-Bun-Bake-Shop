@@ -63,20 +63,6 @@ function updatePrice(){
     localStorage.setItem('currPrice', JSON.stringify(parseFloat(price)))
 }
 
-// Display the number of rolls in the cart
-function cart(){
-    let cartNumStored = JSON.parse(localStorage.getItem('cartNum'));
-    if(cartNumStored){
-        let currCart = document.getElementById('cart');
-        currCart.textContent = (cartNumStored);
-    }
-    let priceSum = JSON.parse(localStorage.getItem('priceSum'))
-    if (priceSum == null){
-        localStorage.setItem('priceSum', JSON.stringify(0))
-    }
-    updateCart();
-}
-
 // Update the cart on the navigaation abr
 function updateCart(){
     let cartNumStored = JSON.parse(localStorage.getItem('cartNum'));
@@ -84,14 +70,28 @@ function updateCart(){
     let cartNum = document.getElementById('cart').text;
     cartNum = cartNum.replace('CART (', '');
     cartNum = cartNum.replace(')',''); 
-    if(cartNumStored){
+    if(cartNumStored) {
         localStorage.setItem('cartNum',JSON.stringify('CART ('+ (selectedQty + parseInt(cartNum)) + ')'));
         document.getElementById('cart').text = 'CART ('+ (selectedQty + parseInt(cartNum)) +')';
     }
-    else{ 
+    else { 
         localStorage.setItem('cartNum',JSON.stringify('CART (' + selectedQty + ')'));
         document.getElementById('cart').text = 'CART (' + selectedQty + ')'; 
     }
+}
+
+// Display the number of rolls in the cart
+function cart(){
+    let cartNumStored = JSON.parse(localStorage.getItem('cartNum'));
+    if(cartNumStored) {
+        let currCart = document.getElementById('cart');
+        currCart.textContent = (cartNumStored);
+    }
+    let priceSum = JSON.parse(localStorage.getItem('priceSum'))
+    if (priceSum == null) {
+        localStorage.setItem('priceSum', JSON.stringify(0))
+    }
+    updateCart();
 }
 
 // Add the number of rolls to the cart
