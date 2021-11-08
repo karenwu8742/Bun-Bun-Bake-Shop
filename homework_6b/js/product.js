@@ -80,7 +80,7 @@ function updateTotal(){
 // Update the cart on the navigaation abr
 function updateCart(){
     let cartNumStored = JSON.parse(localStorage.getItem('cartNum'));
-    console.log(qtyNum)
+    console.log(qtyNum);
     let selectedQty = parseInt(document.getElementById('qtyNum').value);
     let cartNum = document.getElementById('cart').text;
     cartNum = cartNum.replace('CART (', '');
