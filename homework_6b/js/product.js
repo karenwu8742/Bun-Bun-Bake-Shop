@@ -146,6 +146,7 @@ function removeFromTotal(){
 
 // Add the number of rolls to the cart
 function addToCart(){
+    console.log("Entered");
     let name = "Roll with ";
     let glaze = JSON.parse(localStorage.getItem('currGlaze'))
     let img = document.getElementById('originalImg').src;
