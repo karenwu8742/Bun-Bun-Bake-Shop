@@ -107,7 +107,6 @@ function cart(){
     if (priceSum == null) {
         localStorage.setItem('priceSum', JSON.stringify(0))
     }
-    updateCart()
 }
 
 // Remove item from cart
