@@ -57,7 +57,6 @@ function noGlaze(){
 // Update the price on product page
 function updatePrice(){
     let currPrice = document.getElementById('currPrice');
-    console.log(qtyNum)
     let qty = document.getElementById('qtyNum').value;
     let price = (5) * parseInt(qty);
     currPrice.innerText = 'Total: $' + parseFloat(price);
@@ -81,6 +80,7 @@ function updateTotal(){
 // Update the cart on the navigaation abr
 function updateCart(){
     let cartNumStored = JSON.parse(localStorage.getItem('cartNum'));
+    console.log(qtyNum)
     let selectedQty = parseInt(document.getElementById('qtyNum').value);
     let cartNum = document.getElementById('cart').text;
     cartNum = cartNum.replace('CART (', '');
