@@ -57,6 +57,7 @@ function noGlaze(){
 // Update the price on product page
 function updatePrice(){
     let currPrice = document.getElementById('currPrice');
+    console.log(qtyNum)
     let qty = document.getElementById('qtyNum').value;
     let price = (5) * parseInt(qty);
     currPrice.innerText = 'Total: $' + parseFloat(price);
